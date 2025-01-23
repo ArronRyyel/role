@@ -1,0 +1,94 @@
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    perspective: 1000px;
+    overflow: hidden;
+    transition: transform 0.75s ease-in-out;
+  }
+  .item {
+    margin-left: 500px;
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+    transform: scale(0.8) translateX(300px);
+  }
+  .item.active {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    z-index: 5;
+  }
+  .item.previous {
+    transform: scale(0.8) translateX(-200px);
+    opacity: 0.5;
+    z-index: 1;
+  }
+  .item.next {
+    transform: scale(0.8) translateX(300px);
+    opacity: 0.5;
+    z-index: 1;
+  }
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.75s ease-in-out;
+  }
+  button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .prev, .next {
+    position: absolute;
+    top: 90%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+  }
+  .prev {
+    left: calc(50% - 60px); 
+  }
+  .next {
+    left: calc(50% + 20px); 
+  }
+  .content {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    max-width: 30rem;
+  }
+  .carousel-container .content.active {
+    opacity: 10;
+    transform: translateY(0);
+  }
+  #title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  #description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
